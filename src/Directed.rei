@@ -93,6 +93,50 @@ module Make:
      */
     let degree: (t, Vertex.t) => Mask.Result.t(int, error);
 
+    /**
+      The degree sequence of a graph is the list of degrees of all vertices in
+      the graph.
+      */
+    let degreeSequence: t => list(int);
+
+    /**
+      The minimum degree [δ(G)] is the smallest amount of connections found in
+      any vertex part of the graph.
+      */
+    let minDegree: t => option(int);
+
+    /**
+      The maximum degree [Δ(G)] is the biggest amount of connections found in
+      any vertex part of the graph.
+    */
+    let maxDegree: t => option(int);
+
+    /**
+      A degree sequence is graphic if there is a graph that has such degree
+      sequence.
+
+      Havel-Hakimi Algorithm:
+
+      1. Let k be the highest degree.
+      2. Take the next highest k degrees and decrease them by 1.
+      3. Repeat steps 1 and 2 until you exhaust the sequence.
+
+      If the resulting sequence is all zeroes, the sequence is graphic.
+    */
+    let isGraphicSequence: list(int) => bool;
+    let hasGraphicSequence: t => bool;
+
+    /**
+      A graph is regular if all vertices have the same degree.
+      */
+    let isRegular: t => bool;
+
+    /**
+      A connected graph is Eulerian if and only if the degree of every vertex
+      is an even number.
+      */
+    let isEulerian: t => bool;
+
     /** Returns the list of vertices */
     let vertices: t => list(Vertex.t);
 
