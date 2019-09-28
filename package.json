@@ -1,0 +1,37 @@
+{
+  "name": "@arnau/cactus",
+  "version": "0.1.0",
+  "author": "Arnau Siches <asiches@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "src/",
+    "bsconfig.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnau/cactus.git"
+  },
+  "keywords": [
+    "reason",
+    "bucklescript",
+    "cactus",
+    "graph",
+    "layout"
+  ],
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world",
+    "test": "$npm_execpath build && jest --coverage",
+    "format": "bsrefmt"
+  },
+  "devDependencies": {
+    "@glennsl/bs-jest": "^0.4.9",
+    "bs-platform": "6",
+    "bsdoc": "6.0.0-alpha"
+  },
+  "dependencies": {
+    "@arnau/bs-dagre": "^0.3.1"
+  }
+}
