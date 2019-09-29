@@ -182,38 +182,4 @@ describe("Directed.String", () => {
       expect(Graph.maxDegree(graph)) |> toEqual(Some(1));
     })
   );
-
-  describe("isGraphicSequence", () => {
-    test("empty sequence", () =>
-      expect(Graph.isGraphicSequence([])) |> toBe(false)
-    );
-
-    test("single element", () =>
-      expect(Graph.isGraphicSequence([0])) |> toBe(true)
-    );
-
-    test("single edge graph", () =>
-      expect(Graph.isGraphicSequence([1, 1])) |> toBe(true)
-    );
-
-    test("many edge graph", () =>
-      expect(Graph.isGraphicSequence([3, 2, 2, 1, 0])) |> toBe(true)
-    );
-
-    test("not enough", () =>
-      expect(Graph.isGraphicSequence([3, 2])) |> toBe(false)
-    );
-
-    test("has graphic sequence", () => {
-      let graph =
-        Graph.empty()
-        ->Graph.addEdge(Edge.make("a", "b"))
-        ->Graph.addEdge(Edge.make("a", "c"))
-        ->Graph.addEdge(Edge.make("a", "d"))
-        ->Graph.addEdge(Edge.make("b", "d"))
-        ->Graph.addVertex("e");
-
-      expect(Graph.hasGraphicSequence(graph)) |> toEqual(true);
-    });
-  });
 });

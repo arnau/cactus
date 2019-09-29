@@ -62,29 +62,6 @@ module Make = (Vertex: Vertex.S, EdgeS: Edge.S) => {
   let maxDegree = (graph: t): option(int) =>
     Set.elements(graph.vertices)->Mask.List.max(v => degree'(. graph, v));
 
-  let rec isGraphicSequence = (xs: list(int)): bool => {
-    switch (List.sort(xs, (a, b) => b - a)) {
-    | [] => false
-    | [k, ...ks] =>
-      switch (List.take(ks, k)) {
-      // If there are less than k items in the sequence, it is not
-      // graphic.
-      | None => false
-      | Some(ys) =>
-        switch (List.map(ys, y => y - 1)) {
-        | ys' when List.some(ys', y => y < 0) => false
-        | ys' when List.every(ys', y => y == 0) => true
-        | ys' =>
-          let next = List.concat(ys', List.drop(ks, k)->Option.unwrap);
-          isGraphicSequence([0, ...next]);
-        }
-      }
-    };
-  };
-
-  let hasGraphicSequence = (graph: t): bool =>
-    degreeSequence(graph)->isGraphicSequence;
-
   let isRegular = (graph: t): bool =>
     switch (degreeSequence(graph)) {
     | [] => false
