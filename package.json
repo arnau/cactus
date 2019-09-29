@@ -24,7 +24,9 @@
     "start": "bsb -make-world -w",
     "clean": "bsb -clean-world",
     "test": "$npm_execpath build && jest --coverage",
-    "format": "bsrefmt"
+    "format": "bsrefmt",
+    "mlre": "bsrefmt --parse ml --print re --interface false",
+    "reml": "bsrefmt --parse re --print ml --interface false"
   },
   "devDependencies": {
     "@glennsl/bs-jest": "^0.4.9",
