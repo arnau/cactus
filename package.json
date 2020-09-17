@@ -29,11 +29,11 @@
     "reml": "bsrefmt --parse re --print ml --interface false"
   },
   "devDependencies": {
-    "@glennsl/bs-jest": "^0.4.9",
-    "bs-platform": "6",
-    "bsdoc": "6.0.0-alpha"
+    "@glennsl/bs-jest": "^0.5.1",
+    "bs-platform": "8",
+    "bsdoc": "6.0.4-alpha"
   },
   "dependencies": {
-    "@arnau/bs-dagre": "^0.3.1"
+    "@arnau/bs-dagre": "^0.4.1"
   }
 }
